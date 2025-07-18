@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f7fafc;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 500px;
+            margin: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .container {
+            padding: 30px;
+        }
+        .container h2 {
+            margin-top: 0;
+            color: #2d3748;
+        }
+        form {
+            margin-top: 20px;
+        }
+        .file-input-wrapper {
+            border: 2px dashed #cbd5e0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        .file-input-wrapper:hover {
+            border-color: #4CAF50;
+            background-color: #f0fff4;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .file-input-label {
+            color: #4a5568;
+            font-weight: 600;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .file-name {
+            margin-top: 10px;
+            font-style: italic;
+            color: #718096;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <h1>TechTrapture Data Upload</h1>
+        </div>
+        <div class="container">
+            <h2>Upload File to GCS</h2>
+            <form action="/" method="post" enctype="multipart/form-data" id="upload-form">
+                <label for="file-upload" class="file-input-wrapper">
+                    <span class="file-input-label">Click to choose a file</span>
+                    <div id="file-name-display" class="file-name"></div>
+                </label>
+                <input id="file-upload" type="file" name="file">
+                <input type="submit" value="Upload" class="submit-btn">
+            </form>
+        </div>
+    </div>
+    <script>
+        const fileUpload = document.getElementById('file-upload');
+        const fileNameDisplay = document.getElementById('file-name-display');
+        const fileInputWrapper = document.querySelector('.file-input-wrapper');
+
+        fileInputWrapper.addEventListener('click', () => {
+            fileUpload.click();
+        });
+
+        fileUpload.addEventListener('change', () => {
+            if (fileUpload.files.length > 0) {
+                fileNameDisplay.textContent = fileUpload.files[0].name;
+            } else {
+                fileNameDisplay.textContent = '';
+            }
+        });
+    </script>
+</body>
+</html>
