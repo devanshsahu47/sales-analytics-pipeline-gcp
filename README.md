@@ -96,7 +96,7 @@ The Looker Studio dashboard was developed to turn data into strategic direction 
 
 ## 🔗 Live Dashboard
 
-👉 [**View the Live International Growth Dashboard**]([YOUR_LOOKER_STUDIO_LINK_HERE](https://lookerstudio.google.com/reporting/27adc2e9-bde6-4e1a-9f30-da73dc777749))
+👉 [**View the Live International Growth Dashboard**] https://lookerstudio.google.com/reporting/27adc2e9-bde6-4e1a-9f30-da73dc777749
 
 ---
 
